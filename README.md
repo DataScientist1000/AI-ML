@@ -1,24 +1,19 @@
-My GitHub Pages Repository
+AI & ML: The importance of “Selecting the right model for the job”
+Once the conversation turns to AI & Machine Learning, it's easy to get lost in the nuance and jargon. Deep learning models, neural networks, regression models, rule-based models, data, lots of data, and always a loosely defined problem to solve.  With the pharmaceutical industry increasingly adopting AI and Machine Learning concepts to use within business analytics decision frameworks, step one in getting away from the "blur" of the conversation is selecting the business partner and data science team to get to actionable results. Within each initiative, a crucial step is choosing the right model. It's important for the business stakeholder to work closely and iteratively with the data science team to discuss business objectives, identify available data, and define performance expectations for each modeling initiative.  Understanding these critical elements allows the data science team to weigh model types for appropriateness to best solve the problem. Part of this involves understanding the critical design tradeoff between the interpretability and capability of a selected model.  If the business stakeholder doesn't understand the ideal use cases for a particular model type, expectations surrounding a potential solution may be misaligned with actual outcomes.   Understanding the appropriate underlying use case scenarios and the impact of model selection decisions might be as important as the performance of the model itself.
+Accuracy vs. Interpretability
+Accuracy vs. Interpretability can be expressed only as "being able to explain why a model produces a given output" versus "the model outputs being as accurate as possible." A perfect model is both entirely transparent and extremely accurate. While creating an ideal model is always the goal, the reality is that we are often forced to balance model interpretability and capability to suit the given problem.
+ 
 
-
-    //Type Safe Data Set
-    val surveyDS:Dataset[SurveyRecord] = rawDF.select("Age", "Gender", "Country", "state").as[SurveyRecord]
-
-    //Type safe Filter
-    val filteredDS = surveyDS.filter(r => r.Age < 40)
-    //Runtime Filter
-    val filteredDF = surveyDS.filter("Age  < 40")
-
-    //Type safe GroupBy
-    val countDS = filteredDS.groupByKey(r => r.Country).count()
-    //Runtime GroupBy
-    val countDF = filteredDF.groupBy("Country").count()
-
-    logger.info("DataFrame: " + countDF.collect().mkString(","))
-    logger.info("DataSet: " + countDS.collect().mkString(","))
-
-    //Uncomment if you want to investigate SparkUI
-    //scala.io.StdIn.readLine()
-    spark.stop()
-    
-    
+Deep Learning Models (“neural networks”)
+Increasingly popular deep learning models are on one extreme of model selection, and are often labeled a "black box" approach. They are commonly found as the most capable and accurate methods but lack any valuable interpretation of the models' calculated outcome. 
+Deep learning is typically the optimal solution for problems requiring little to no interpretability. Many applications value understanding over capability, meaning there's more value in an explainable model than an accurate one.
+Regression Models
+On the other side of the spectrum are regression models. While these don't typically boast the accuracy of deep learning models and require a stricter set of assumptions about the data, regression-based models can offer excellent interpretability. Therefore, it's easier to tease out "why" a particular feature set becomes mapped to a specific outcome.  When explicitly mapping data inputs to outputs is more useful than pure accuracy, then a regression model might be an appropriate solution.
+Rule-based Models
+Somewhere between deep learning and regression, lie rule-based models. These models typically don't offer the black box accuracy of a deep learning model, or the excellent interpretation of a regression model, but modest capability at both. Rule-based models tend to make less strict assumptions about the data as well.
+ 
+In Summary
+The pharmaceutical industry is no different than any other high functioning domain looking to stay ahead of the curve by taking advantage of data science.  There is no one size fits all model that excels at solving all problems. Tailoring each solution to the context and demand of each problem is intimately tied to the model accuracy versus interpretability tradeoff.
+The AI & ML team at ValueCentric uses an iterative, proof-of-concept approach to work collaboratively and directly with customer stakeholders to innovate new AI-based solutions to existing business analytics challenges.  In the area of Specialty pharmaceuticals, the team is helping to evolve the insights and understanding of the Specialty Patient Journey in order to recommend early interventions and other strategies to improve outcomes.  In each of these pursuits the team works to effectively communicate a deeper understanding to the relevant stakeholders to sync the technical, business, and end-user sides to find an optimal solution.
+About the author
+Jon Hunt is an experienced engineering professional with roots in Aerospace and Mechanical engineering.  His work completing his advanced degree in Computational and Data Enabled Science and Engineering at the University of Buffalo provided an in-depth understanding of the latest concepts and innovations in Artificial Intelligence and Machine Learning.  Jon leverages his background and experience for the advancement of AI & ML powered solutions in the ValueTrak platform.
